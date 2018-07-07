@@ -138,7 +138,6 @@ public class TestPFG extends CommonPFG {
 									  String restaurant_name,
 									  String username, 
 									  String password, 
-									  String account, 
 									  String listname,
 									  String exportstatus,
 									  String detailedstatus) {
