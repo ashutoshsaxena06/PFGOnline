@@ -161,12 +161,14 @@ public class TestPFG extends CommonPFG {
 			if (active.equalsIgnoreCase("Yes")) {
 				// if list is not empty
 				System.out.println(restaurant_name + " for purveryor " + purveyor + " is Active !!");
-				if (listname != null && listname.length() != 0) {
+				if (listname != null) {
 					result = testPFG.startPFG(listname.trim(), username.trim(), password.trim());
 					if (result.equals(true)) {
 						emailMessageExport = "Pass";
 						exportstatus = "Pass";
 						detailedstatus = "OG exported succesfully";
+						Thread.sleep(5000);
+						SendMailSSL.sendMailActionXlsx(purveyor.trim(), restaurant_name.trim());
 					} else {
 						emailMessageExport = "Failed";
 						exportstatus = "Failed";
@@ -177,8 +179,6 @@ public class TestPFG extends CommonPFG {
 					exportstatus = "Failed";
 					detailedstatus = "Error : Please provide valid List name";
 				}
-				Thread.sleep(5000);
-				SendMailSSL.sendMailActionXlsx(purveyor.trim(), restaurant_name.trim());
 			} else {
 				System.out.println(restaurant_name + " for purveryor " + purveyor + " is not Active !!");
 				exportstatus = "Not Active";
