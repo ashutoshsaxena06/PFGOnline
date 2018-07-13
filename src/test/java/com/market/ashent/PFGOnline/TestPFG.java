@@ -168,7 +168,7 @@ public class TestPFG extends CommonPFG {
 						exportstatus = "Pass";
 						detailedstatus = "OG exported succesfully";
 						Thread.sleep(5000);
-						SendMailSSL.sendMailActionXlsx(purveyor.trim(), restaurant_name.trim());
+						SendMailSSL.sendMailActionXls(purveyor.trim(), restaurant_name.trim());
 					} else {
 						emailMessageExport = "Failed";
 						exportstatus = "Failed";
