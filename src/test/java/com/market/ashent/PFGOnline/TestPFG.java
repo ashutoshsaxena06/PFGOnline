@@ -75,10 +75,12 @@ public class TestPFG extends CommonPFG {
 			System.out.println("Closing file output stream object!");
 			out.close();
 		}
-		if (driver != null) {
+		try{
 			System.out.println("Closing the browser!");
 			// TestCases.driver.close();
 			driver.quit();
+		}catch (Exception e) {
+			System.out.println("already closed");
 		}
 
 		if (exportworkbook != null) {
