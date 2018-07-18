@@ -37,7 +37,7 @@ public class TestPFG extends CommonPFG {
 	// "C:\\Users\\my\\Downloads\\ExportEngineInput.xlsx";
 	// projectPath + "\\config\\ExportEngineInput.xlsx";
 	public static SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
-	public static String reportFile = "C:\\Users\\Edge\\Desktop\\Reports\\USF_OG_report\\ExportSummary_USF_"
+	public static String reportFile = "C:\\Users\\Edge\\Desktop\\Reports\\PFG_OG_report\\ExportSummary_PFG_"
 			+ new Date().toString().replace(":", "").replace(" ", "") + ".xlsx";
 	// "C:\\Users\\my\\Downloads\\Reports\\USF_OG_report\\ExportSummary_USF_"+ new
 	// Date().toString().replace(":", "").replace(" ", "") + ".xlsx";
