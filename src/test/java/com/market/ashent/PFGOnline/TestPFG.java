@@ -101,7 +101,11 @@ public class TestPFG extends CommonPFG {
 		out = new FileOutputStream(new File(reportFile));
 		exportworkbook.write(out);
 		acno++;
-		driver.close();
+		try {
+			driver.close();
+		} catch (Exception e) {
+			System.out.println("already closed");
+		}
 	}
 
 	@DataProvider(name = "testData")
