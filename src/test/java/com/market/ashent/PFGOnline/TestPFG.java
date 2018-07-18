@@ -132,15 +132,8 @@ public class TestPFG extends CommonPFG {
 	}
 
 	@Test(dataProvider = "testData")
-	public static void Export_Mail_OG(String active, 
-									  String accountID, 
-									  String purveyor,
-									  String restaurant_name,
-									  String username, 
-									  String password, 
-									  String listname,
-									  String exportstatus,
-									  String detailedstatus) {
+	public static void Export_Mail_OG(String active, String accountID, String purveyor, String restaurant_name,
+			String username, String password, String listname, String exportstatus, String detailedstatus) {
 		Boolean result;
 		System.out.println("Inside OG Export : Started exporting OG for different accounts");
 		XSSFCell cell1, cell2;
@@ -164,11 +157,16 @@ public class TestPFG extends CommonPFG {
 				if (listname != null) {
 					result = testPFG.startPFG(listname.trim(), username.trim(), password.trim());
 					if (result.equals(true)) {
-						emailMessageExport = "Pass";
-						exportstatus = "Pass";
-						detailedstatus = "OG exported succesfully";
-						Thread.sleep(5000);
-						SendMailSSL.sendMailActionXls(purveyor.trim(), restaurant_name.trim());
+						try {
+							Thread.sleep(5000);
+							SendMailSSL.sendMailActionXls(purveyor.trim(), restaurant_name.trim());
+							emailMessageExport = "Pass";
+							exportstatus = "Pass";
+							detailedstatus = "OG exported succesfully";
+						} catch (Exception e) {
+							exportstatus = "Failed";
+							detailedstatus = "Error : OG downloaded but failed during mail trigger";
+						}
 					} else {
 						emailMessageExport = "Failed";
 						exportstatus = "Failed";
